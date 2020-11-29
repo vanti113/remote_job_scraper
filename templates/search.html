@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel=stylesheet type=text/css href="{{ url_for('static',
+    filename='css/style.css') }}">
+    <title>Search</title>
+  </head>
+  <body>
+    <header>
+      <h2>Remote Jobs</h2>
+      <h3>{{leng}} {{keyword}} jobs found.</h3>
+      {% if csv_key: %}
+      <p>
+        <a href="/csv?key={{csv_key}}" download="{{csv_key}}.csv">
+          Export to CSV
+        </a>
+      </p>
+      {% elif csv_key == 0 %}
+      <p></p>
+      {% endif %}
+      <p><a href="/">&larr; Go back</a></p>
+    </header>
+    <main>
+      <ul>
+        {% for job in jobs%}
+        <li>
+          <h3>{{job[0]}}</h3>
+          <p>{{job[1]}}</p>
+          <p>
+            <a href="{{job[2]}}" target="_blank">Apply</a>
+          </p>
+        </li>
+        <hr />
+        {% endfor %}
+      </ul>
+    </main>
+  </body>
+</html>

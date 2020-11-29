@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static',
+    filename='css/style.css') }}">
+  </head>
+  <body>
+    <header>
+      <h2>Remote Jobs</h2>
+    </header>
+    <main>
+      <form action="/search">
+        <h3>Search by term:</h3>
+        <input
+          type="text"
+          name="key"
+          placeholder="ex)python? django?"
+          required
+        />
+        <button type="submit">Find my Life!</button>
+      </form>
+    </main>
+  </body>
+</html>
